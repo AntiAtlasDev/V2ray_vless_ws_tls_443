@@ -1,26 +1,38 @@
 {
-  "inbounds": [{
-    "port": 443,
-    "protocol": "vless",
-    "settings": {
-      "clients": [{
-        "id": "PUT-YOUR-UUID-HERE",
-        "level": 0,
-        "email": "user@example.com"
-      }],
-      "decryption": "none"
-    },
-    "streamSettings": {
-      "network": "ws",
-      "security": "tls",
-      "tlsSettings": {},
-      "wsSettings": {
-        "path": "/vless"
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "f5e3f238-8621-49fc-a7fa-4395bfc0e82a",
+            "level": 0,
+            "email": "user@example.com"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "certificates": [
+            {
+              "certificateFile": "/ssl/fullchain.cer",
+              "keyFile": "/ssl/private.key"
+            }
+          ]
+        },
+        "wsSettings": {
+          "path": "/vless"
+        }
       }
     }
-  }],
-  "outbounds": [{
-    "protocol": "freedom",
-    "settings": {}
-  }]
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom"
+    }
+  ]
 }
